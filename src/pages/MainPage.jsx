@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import Logo from '../components/Logo';
+import PowerButton from '../components/PowerButton';
 
 const MainContainer = styled.section`
   background: ${props => props.theme.body};
@@ -25,10 +27,8 @@ const MainPage = () => {
 
     <MainContainer>
       <Container>
-
-        <h1>
-          MainPage
-        </h1>
+        <PowerButton />
+        <Logo/>
       </Container>
     </MainContainer>
   )
