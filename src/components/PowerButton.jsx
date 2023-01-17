@@ -45,7 +45,7 @@ const Power = styled.button`
 const PowerButton = () => {
     return (
         <Power>
-            <Link to='/blog'>
+            <Link to='/'>
                 <PowerBtn width={30} height={30} fill='currentColor' />
             </Link>
         </Power>

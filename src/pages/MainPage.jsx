@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Logo from '../components/Logo';
 import PowerButton from '../components/PowerButton';
+import SocialIcons from '../components/SocialIcons';
 
 const MainContainer = styled.section`
   background: ${props => props.theme.body};
@@ -28,7 +29,8 @@ const MainPage = () => {
     <MainContainer>
       <Container>
         <PowerButton />
-        <Logo/>
+        <Logo />
+        <SocialIcons />
       </Container>
     </MainContainer>
   )
