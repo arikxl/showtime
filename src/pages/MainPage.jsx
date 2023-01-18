@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 import { ReactSvg, YinYang } from '../components/AllSvg';
+import DarkDiv from '../components/DarkDiv';
 import Logo from '../components/Logo';
 import PowerButton from '../components/PowerButton';
 import SocialIcons from '../components/SocialIcons';
@@ -34,7 +35,7 @@ const Contact = styled.a`
 `;
 
 const About = styled(NavLink)`
-   color:${props => props.theme.text};
+   color:${props => props.isClick ? props.theme.body : props.theme.text};
     text-decoration: none;
     z-index: 1;
 `;
@@ -76,8 +77,8 @@ const rotate = keyframes`
 
 const Center = styled.button`
   position: absolute;
-  top:${props => props.click ? '85%' : '50%'};
-  left:${props => props.click ? '92%' : '50%'};
+  top:${props => props.isClick ? '85%' : '50%'};
+  left:${props => props.isClick ? '92%' : '50%'};
   border:none;
   transform: translate(-50%, -50%);
   outline: none;
@@ -101,30 +102,30 @@ const Center = styled.button`
 
 const MainPage = () => {
 
-  const [click, setClick] = useState(false)
+  const [isClick, setIsClick] = useState(false)
 
-  const handleClick = () => setClick(!click);
+  const handleClick = () => setIsClick(!isClick);
 
   return (
 
     <MainContainer>
       <Container>
         <PowerButton />
-        <Logo />
-        <SocialIcons />
-        <DarkDiv click={click } />
-        <Center click={ click}>
+        <Logo theme={isClick ? 'dark' : 'light'} />
+        <SocialIcons theme={isClick? 'dark' : 'light'} />
+        <DarkDiv isClick={isClick } />
+        <Center isClick={isClick}>
           <ReactSvg onClick={() => handleClick()} fill='currentColor'
-            width={click ? 120 : 200} height={click ? 120 : 200}  />
+            width={isClick ? 120 : 200} height={isClick ? 120 : 200}  />
           <span>Click here</span>
         </Center>
         <Contact href='mailto:arikxl@gmail.com' target='_blank'>
           <h2>Say hi...</h2>
         </Contact>
         <Blog to='/blog'><h2>Blog</h2></Blog>
-        <Work to='/work'><h2>Work</h2></Work>
+        <Work to='/work' isClick={isClick}><h2>Work</h2></Work>
         <BottomBar>
-          <About to='/about'><h2>About.</h2></About>
+          <About to='/about' isClick={isClick}><h2>About.</h2></About>
           <Skills to='/skills'><h2>My Skills.</h2></Skills>
         </BottomBar>
 

@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { darkTheme } from '../style/Themes';
 
 const LogoStyled = styled.h1`
     display: inline-block;
-    color: ${props => props.theme.text};
+    color: ${props => props.color=== 'dark' ? darkTheme.text : darkTheme.body};
     font-family:'Pacifico', cursive ;
 
     position: fixed;
@@ -13,9 +14,9 @@ const LogoStyled = styled.h1`
 
 `;
 
-const Logo = () => {
+const Logo = (props) => {
   return (
-      <LogoStyled>ARIKxl</LogoStyled>
+    <LogoStyled color={props.theme }>ARIKxl</LogoStyled>
   )
 }
 
