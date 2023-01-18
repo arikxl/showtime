@@ -13,13 +13,13 @@ const Icons = styled.section`
     z-index:3;
 
     &>*:not(:last-child){
-        margin: 0.5rem 0 ;
+        margin: 0.3rem 0 ;
     }
 `;
 
 const Line = styled.span`
     width:2px;
-    height:8rem;
+    height:5rem;
     background-color: ${props => props.theme.text}
 `;
 
