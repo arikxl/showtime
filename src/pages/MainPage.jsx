@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
-import { ReactSvg, YinYang } from '../components/AllSvg';
+
+import { ReactSvg } from '../components/AllSvg';
 import DarkDiv from '../components/DarkDiv';
+import Intro from '../components/Intro';
 import Logo from '../components/Logo';
 import PowerButton from '../components/PowerButton';
 import SocialIcons from '../components/SocialIcons';
@@ -95,7 +97,7 @@ const Center = styled.button`
   }
 
   &>:last-child{
-    display:${props => props.click ? 'none' : 'inline-block'};
+    display:${props => props.isClick ? 'none' : 'inline-block'};
     padding-top: 1rem;
   }
 `;
@@ -112,11 +114,11 @@ const MainPage = () => {
       <Container>
         <PowerButton />
         <Logo theme={isClick ? 'dark' : 'light'} />
-        <SocialIcons theme={isClick? 'dark' : 'light'} />
-        <DarkDiv isClick={isClick } />
-        <Center isClick={isClick}>
-          <ReactSvg onClick={() => handleClick()} fill='currentColor'
-            width={isClick ? 120 : 200} height={isClick ? 120 : 200}  />
+        <SocialIcons theme={isClick ? 'dark' : 'light'} />
+        <DarkDiv isClick={isClick} />
+        <Center isClick={isClick} onClick={() => handleClick()}>
+          <ReactSvg  fill='currentColor'
+            width={isClick ? 120 : 200} height={isClick ? 120 : 200} />
           <span>Click here</span>
         </Center>
         <Contact href='mailto:arikxl@gmail.com' target='_blank'>
@@ -130,6 +132,7 @@ const MainPage = () => {
         </BottomBar>
 
       </Container>
+      {isClick ? <Intro isClick={isClick } /> : null }
     </MainContainer>
   )
 }

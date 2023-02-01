@@ -16,6 +16,9 @@ const Icons = styled.section`
     &>*:not(:last-child){
         margin: 0.3rem 0 ;
     }
+    a{
+        color:inherit;
+    }
 `;
 
 const Line = styled.span`
@@ -29,25 +32,25 @@ const SocialIcons = (props) => {
         <Icons>
 
             <div>
-                <a href='https://github.com/arikxl' target="_blank" style={{color: 'inherit'}} rel="noreferrer">
+                <a href='https://github.com/arikxl' target="_blank" rel="noreferrer">
                     <Github width={25} height={25}
                         fill={props.theme === 'dark' ? darkTheme.text : darkTheme.body } />
                 </a>
             </div>
             <div>
-                <a href='https://www.facebook.com/arik.alexandrov/' style={{ color: 'inherit' }} target="_blank" rel="noreferrer">
+                <a href="https://www.facebook.com/arik.alexandrov/"  target="_blank" rel="noreferrer">
                     <Facebook width={25} height={25}
                         fill={props.theme === 'dark' ? darkTheme.text : darkTheme.body} />
                 </a>
             </div>
             <div>
-                <a href='https://www.youtube.com/channel/UCK_Vs-k83r_IzFh9s1pGixA' style={{ color: 'inherit' }} target="_blank" rel="noreferrer">
+                <a href='https://www.youtube.com/channel/UCK_Vs-k83r_IzFh9s1pGixA'  target="_blank" rel="noreferrer">
                     <YouTube width={25} height={25}
                         fill={props.theme === 'dark' ? darkTheme.text : darkTheme.body}/>
                 </a>
             </div>
             <div>   
-                <a href='https://t.me/Arik_A' style={{ color: 'inherit' }} target="_blank" rel="noreferrer">
+                <a href='https://t.me/Arik_A' target="_blank" rel="noreferrer">
                     <Telegram width={25} height={25}
                         fill={props.theme === 'dark' ? darkTheme.text : darkTheme.body}/>
                 </a>
