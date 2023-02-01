@@ -15,10 +15,15 @@ const Icons = styled.section`
 
     &>*:not(:last-child){
         margin: 0.3rem 0 ;
+
+        :hover{
+            filter: drop-shadow(0 0 12px  #61dafb);
+        }
     }
-    a{
+    a{    
         color:inherit;
     }
+    
 `;
 
 const Line = styled.span`

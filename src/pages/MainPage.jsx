@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
@@ -34,12 +35,20 @@ const Contact = styled.a`
     right: calc(1rem + 2vw);
     text-decoration: none;
     z-index: 1;
+
+    :hover{
+      color: #61dafb;
+    }
 `;
 
 const About = styled(NavLink)`
    color:${props => props.isClick ? props.theme.body : props.theme.text};
     text-decoration: none;
     z-index: 1;
+
+    :hover{
+      color: #61dafb;
+    }
 `;
 
 const Blog = styled(About)`
@@ -122,13 +131,23 @@ const MainPage = () => {
           <span>Click here</span>
         </Center>
         <Contact href='mailto:arikxl@gmail.com' target='_blank'>
-          <h2>Say hi...</h2>
+          <motion.h2 whileHover={{scale:1.1}} whileTap={{scale:0.9}}>
+            Say hi...
+          </motion.h2>
         </Contact>
-        <Blog to='/blog'><h2>Blog</h2></Blog>
-        <Work to='/work' isClick={isClick}><h2>Work</h2></Work>
+        <Blog to='/blog'>
+          <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>Blog</motion.h2>
+        </Blog>
+        <Work to='/work' isClick={isClick}>
+          <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>Work</motion.h2>
+        </Work>
         <BottomBar>
-          <About to='/about' isClick={isClick}><h2>About.</h2></About>
-          <Skills to='/skills'><h2>My Skills.</h2></Skills>
+          <About to='/about' isClick={isClick}>
+            <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>About.</motion.h2>
+          </About>
+          <Skills to='/skills'>
+            <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>My Skills.</motion.h2>
+          </Skills>
         </BottomBar>
 
       </Container>
