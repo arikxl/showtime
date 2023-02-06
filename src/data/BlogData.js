@@ -1,7 +1,7 @@
 export const Blogs = [
     {
         id:1,
-        name:"Build Website with ReactJS, Styled-components and GSAP for Scrolling Animations",
+        name:"Build Website with ReactJS, Styled-components for Scrolling Animations",
         tags:["react","gsap","styled-components"],
         date:"13 May, 2021",
         imgSrc:"https://res.cloudinary.com/practicaldev/image/fetch/s--sBeV06Xc--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/2yrzy75q4dzibqz6rf82.png",
@@ -51,7 +51,7 @@ export const Blogs = [
    
     {
         id:7,
-        name:"What is Redux ? Simply Explained!",
+        name:"What is Redux ? Simply Explained! What is Redux ? Simply Explained!",
         tags:["react","redux","javascript"],
         date:"16 May, 2021",
         imgSrc:"https://res.cloudinary.com/practicaldev/image/fetch/s--ZY1EK-Eo--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bcz1u90oq3prr5fga3fs.png",
@@ -59,7 +59,7 @@ export const Blogs = [
     },
     {
         id:8,
-        name:"How to create Sidebar navigation menu in ReactJS with react router and framer-motion",
+        name:"Create Sidebar nav-menu in React with react router and framer-motion",
         tags:["react","framer-motion","styled-components"],
         date:"26 May, 2021",
         imgSrc:"https://res.cloudinary.com/practicaldev/image/fetch/s--rv4I8UwE--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/0a9h50milhlf1us6mn4a.png",
