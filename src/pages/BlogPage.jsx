@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import BlogCenter from '../components/BlogCenter';
 import Logo from '../components/Logo';
 import PowerButton from '../components/PowerButton';
+import SocialIcons from '../components/SocialIcons';
 
 const BlogPageStyled = styled.main`
   background-image: url('https://res.cloudinary.com/arikxl/image/upload/v1675717875/Ella2023/oo4fip5929ukgxq8feoz.jpg');
@@ -9,8 +11,6 @@ const BlogPageStyled = styled.main`
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  width: 100vw;
-  height: 100vh;
 `;
 
 const Container = styled.section`
@@ -23,15 +23,13 @@ const Container = styled.section`
 
 const BlogPage = () => {
 
-  const [isClick, setIsClick] = useState(false)
-
-
   return (
     <BlogPageStyled>
       <Container>
         <PowerButton />
-        <Logo theme={isClick ? 'dark' : 'light'} />
-
+        <Logo  />
+        <SocialIcons />
+        <BlogCenter />
       </Container>
     </BlogPageStyled>
   )
