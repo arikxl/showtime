@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import BlogAnchor from '../components/BlogAnchor';
 import BlogCenter from '../components/BlogCenter';
 import Logo from '../components/Logo';
 import PowerButton from '../components/PowerButton';
@@ -29,6 +30,7 @@ const BlogPage = () => {
         <PowerButton />
         <Logo  />
         <SocialIcons />
+        <BlogAnchor />
         <BlogCenter />
       </Container>
     </BlogPageStyled>
