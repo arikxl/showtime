@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Blogs } from '../data/BlogData';
+
 import BlogItem from './BlogItem';
-
-
+import { Blogs } from '../data/BlogData';
 
 const CenterStyled = styled.section`
     display: flex;

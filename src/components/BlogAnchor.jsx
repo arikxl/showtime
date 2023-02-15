@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { Anchor, Link } from './AllSvg';
 
+import { Anchor, Link } from './AllSvg';
 
 const Container = styled.div`
     position: relative;
@@ -25,11 +25,10 @@ const Slider = styled.div`
 const PreDisplay = styled.div`
   position: absolute;
   top: 0;
-  right: calc(2rem - 25px);
-
+  right: 2rem;
 `;
 
-const BlogAnchor = () => {
+const BlogAnchor = (props) => {
 
   const ref = useRef(null);
   const hiddenRef = useRef(null);
@@ -59,14 +58,14 @@ const BlogAnchor = () => {
 
   return (
     <Container>
-      <PreDisplay ref={hiddenRef} className='hidden'> 
+      <PreDisplay ref={hiddenRef} className='hidden'>
         <Anchor width={70} height={70} fill='currentColor' />
-       </PreDisplay>
+      </PreDisplay>
       <Slider ref={ref}>
         {
-          [...Array(25)].map((x, id) => {
-            return <Link key={id} width={20} height={20}
-            fill='currentColor' className='chain' />
+          [...Array(props.numbers)].map((x, id) => {
+            return <Link key={id} width={25} height={25}
+              fill='currentColor' className='chain' />
           })
         }
         <Anchor width={70} height={70} fill='currentColor' />

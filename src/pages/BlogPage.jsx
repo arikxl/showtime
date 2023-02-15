@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import BlogAnchor from '../components/BlogAnchor';
-import BlogCenter from '../components/BlogCenter';
+
 import Logo from '../components/Logo';
+import BlogCenter from '../components/BlogCenter';
+import BlogAnchor from '../components/BlogAnchor';
 import PowerButton from '../components/PowerButton';
 import SocialIcons from '../components/SocialIcons';
 
@@ -24,13 +25,20 @@ const Container = styled.section`
 
 const BlogPage = () => {
 
+  const [numbers, setNumbers] = useState(0);
+
+  useEffect(() => {
+    let num = (window.innerHeight - 70) / 30;
+    setNumbers(parseInt(num))
+  },[])
+
   return (
     <BlogPageStyled>
       <Container>
         <PowerButton />
         <Logo  />
         <SocialIcons />
-        <BlogAnchor />
+        <BlogAnchor numbers={numbers } />
         <BlogCenter />
       </Container>
     </BlogPageStyled>

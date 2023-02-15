@@ -1,6 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 const Box = styled(NavLink)`
     width: calc(10rem + 15vw);
@@ -35,7 +35,6 @@ const Image = styled.div`
     ${Box}:hover &{
         border: 1px solid #61dafb;
     }
-
 `;
 
 const Title = styled.h3`
@@ -45,24 +44,22 @@ const Title = styled.h3`
     font-weight: 700;
     border-bottom: 1px solid ${props => props.theme.text};
 
-        ${Box}:hover &{
+    ${Box}:hover &{
     border-bottom: 1px solid #61dafb;
     }
 `;
 
 const HashTags = styled.div`
     padding: 0.5rem 0;
-    `;
+ `;
 const Tag = styled.span`
     padding-right: 0.5rem ;
 `;
-
 const Date = styled.span`
     padding: 0.5rem 0;
 `;
 
 const BlogItem = ({ blog }) => {
-
 
     const { name, tags, date, imgSrc, link } = blog;
 
