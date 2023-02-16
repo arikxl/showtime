@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
+import {  Develope, Education } from '../components/AllSvg';
 import { lightTheme } from '../style/Themes';
 
 const Main = styled.main`
@@ -21,6 +22,18 @@ const Box = styled.section`
   padding: 2rem;
   z-index: 3;
   line-height: 1.5;
+
+  font-family: 'Ubuntu Mono', monospace;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const Title = styled.h2`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: calc(1em + 1vw);
 `;
 
 const SkillsPage = () => {
@@ -28,10 +41,16 @@ const SkillsPage = () => {
     <ThemeProvider theme={lightTheme}>
       <Main>
         <Box>
-          <div>1</div>
+          <Title>
+            <Education width={40} height={40} />
+            Teacher
+          </Title>
         </Box>
         <Box>
-          <div>2</div>
+          <Title>
+            <Develope width={40} height={40} />
+            Frontend Developer
+          </Title>
         </Box>
       </Main>
     </ThemeProvider>
