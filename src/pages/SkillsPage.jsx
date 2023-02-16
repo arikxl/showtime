@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import {  Develope, Education } from '../components/AllSvg';
+import BlogParticle from '../components/BlogParticle';
 import Logo from '../components/Logo';
 import PowerButton from '../components/PowerButton';
 import SocialIcons from '../components/SocialIcons';
@@ -78,6 +79,7 @@ const SkillsPage = () => {
         <Logo theme='light' />
         <SocialIcons theme='light' />
         <PowerButton />
+        <BlogParticle theme='light'/>
         <Box>
           <Title>
             <Education width={40} height={40} />
