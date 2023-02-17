@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
-import { Anchor, Link } from './AllSvg';
+import { Link, Pen } from './AllSvg';
 
 const Container = styled.div`
     position: relative;
@@ -10,25 +10,21 @@ const Container = styled.div`
 const Slider = styled.div`
   position: fixed;
   top:0;
-  right: 2rem;
+  right: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   transform: translateY(-100%);
-
+  
   .chain{
+    right:0;
     transform: rotate(135deg);
   }
 `;
 
-const PreDisplay = styled.div`
-  position: absolute;
-  top: 0;
-  right: 2rem;
-`;
 
-const BlogAnchor = (props) => {
+const BlogPen = (props) => {
 
   const ref = useRef(null);
   const hiddenRef = useRef(null);
@@ -58,20 +54,17 @@ const BlogAnchor = (props) => {
 
   return (
     <Container>
-      <PreDisplay ref={hiddenRef} className='hidden'>
-        <Anchor width={70} height={70} fill='currentColor' />
-      </PreDisplay>
       <Slider ref={ref}>
         {
           [...Array(props.numbers)].map((x, id) => {
-            return <Link key={id} width={25} height={25}
+            return <Link key={id} width={15} height={15}
               fill='currentColor' className='chain' />
           })
         }
-        <Anchor width={70} height={70} fill='currentColor' />
+        <Pen width={90} height={70} fill='currentColor' />
       </Slider>
     </Container>
   )
 }
 
-export default BlogAnchor
+export default BlogPen

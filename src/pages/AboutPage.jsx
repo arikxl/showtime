@@ -42,7 +42,7 @@ const SpaceMan = styled.div`
 const Box = styled.section`
   color: ${props => props.theme.text};
   border: 2px solid ${props => props.theme.text};
-  padding: 2rem;
+  padding:2.7rem 2rem;
   width: 50vw;
   height: 60vh;
   z-index: 3;
@@ -57,6 +57,14 @@ const Box = styled.section`
   top: 8rem;
   font-family: 'Ubuntu Mono', monospace;
   font-style: italic;
+  flex-direction: column;
+
+  a{
+    color: inherit;
+    text-decoration: underLine;
+    font-weight: bold;
+  }
+
 `;
 
 const AboutPage = () => {
@@ -72,14 +80,25 @@ const AboutPage = () => {
         </SpaceMan>
 
         <Box>
-          I'm a front-end developer located in India. I love to create simple yet beautiful websites with great user experience.
-          <br/> <br/>
-          I'm interested in the whole frontend stack Like trying new things and building great projects. I'm an independent freelancer and blogger. I love to write blogs and read books.
-          <br/> <br/>
-          I believe everything is an Art when you put your consciousness in it. You can connect with me via social links.
+          I'm a web developer located in Beer Sheva.
+          I love to create simple yet beautiful websites with great user experience & a lot of imagination.
+          <br /> <br />
+          My interests in programming  are mainly the frontend stack.
+          Like to try new ideas and building great projects.
+          <br />
+          In addition to being a independent freelancer,
+          <br />
+          I'm also a teacher.
+          {/* I'm an independent freelancer and also a teacher. */}
+          <br /> <br />
+          My finest creation (a real piece of art) are my two kids.
+          Most of the inspiration comes from them.
+
+          <a href=" tel:+972-506860169">Let's talk</a>
         </Box>
-       
+
       </Main>
+
     </ThemeProvider>
   )
 }

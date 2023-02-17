@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Logo from '../components/Logo';
 import BlogCenter from '../components/BlogCenter';
-import BlogAnchor from '../components/BlogAnchor';
+import BlogPen from '../components/BlogPen';
 import PowerButton from '../components/PowerButton';
 import SocialIcons from '../components/SocialIcons';
 
@@ -28,7 +28,7 @@ const BlogPage = () => {
   const [numbers, setNumbers] = useState(0);
 
   useEffect(() => {
-    let num = (window.innerHeight - 70) / 30;
+    let num = (window.innerHeight - 70) / 20;
     setNumbers(parseInt(num))
   },[])
 
@@ -38,7 +38,7 @@ const BlogPage = () => {
         <PowerButton />
         <Logo  />
         <SocialIcons />
-        <BlogAnchor numbers={numbers } />
+        <BlogPen numbers={numbers } />
         <BlogCenter />
       </Container>
     </BlogPageStyled>
