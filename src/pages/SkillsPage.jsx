@@ -1,11 +1,12 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import {  Develope, Education } from '../components/AllSvg';
-import BlogParticle from '../components/BlogParticle';
+
 import Logo from '../components/Logo';
 import PowerButton from '../components/PowerButton';
 import SocialIcons from '../components/SocialIcons';
+import BlogParticle from '../components/BlogParticle';
 import { lightTheme } from '../style/Themes';
+import {  Develope, Education } from '../components/AllSvg';
 
 const Main = styled.main`
   background-color:${props => props.theme.body};

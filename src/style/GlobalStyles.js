@@ -19,6 +19,10 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Source Sans Pro', sans-serif;
 
     }
+    ::selection{
+        background-color: #61dafb;
+        color: #282c34;
+    }
 `;
 
 
