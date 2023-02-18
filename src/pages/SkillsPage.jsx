@@ -87,37 +87,40 @@ const SkillsPage = () => {
             Teacher
           </Title>
           <Description>
-            I love to create design which speaks, Keep it clean, minimal and simple.
+            Programming teacher and guide for all ages at all levels.
           </Description>
           <Description>
-            <strong>I LIKE TO DESIGN</strong>
+            <strong>Learning platforms</strong>
             <ul>
-              <li>Web Design</li>
-              <li>Mobile Apps</li>
+              <li>Trainings for companies</li>
+              <li>Private lessons</li>
+              <li>In person & online meetings</li>
             </ul>
           </Description>
           <Description>
             <strong>TOOLS</strong>
             <ul>
-              <li>Figma</li>
+              <li>Zoom, PowerPoint, exercises.</li>
             </ul>
           </Description>
         </Box>
         <Box>
           <Title>
             <Develope width={40} height={40} />
-            Frontend Developer
+            Web Developer
           </Title>
           <Description>
-            I value business or brand for which i'm creating, thus i enjoy bringing new ideas to life.
+            From the planning phase to build.
+            <br/>
+            Bringing new ideas to life.
           </Description>
           <Description>
             <strong>Skills</strong>
-            <p>Html, Css, Js, React, Bootstrap, Tailwind, Firebase</p>
+            <p>Html, Css, Js, Ts, Node, React, Vue, MUI, Tailwind, Firebase, MongoDB, MySQL, Figma, Canva...</p>
           </Description>
           <Description>
             <strong>TOOLS</strong>
-            <p>VScode, Github, Codepen etc.</p>
+            <p>VScode, Github, WordPress etc.</p>
           </Description>
         </Box>
       </Main>
