@@ -27,7 +27,6 @@ const Slider = styled.div`
 const BlogPen = (props) => {
 
   const ref = useRef(null);
-  const hiddenRef = useRef(null);
 
   useEffect(() => {
 
@@ -40,12 +39,6 @@ const BlogPen = (props) => {
       let diffP = (diff * 100) / (bodyHeight - windowSize);
 
       ref.current.style.transform = `translateY(${-diffP}%)`
-
-      if (window.pageYOffset > 5) {
-        hiddenRef.current.style.display = 'none'
-      } else {
-        hiddenRef.current.style.display = 'block'
-      }
     }
 
     window.addEventListener('scroll', handleScroll)

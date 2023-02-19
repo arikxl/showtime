@@ -64,7 +64,7 @@ const Text = styled.div`
     }
 `;
 
-const Intro = ({ props }) => {
+const Intro = () => {
 
     return (
         <IntroStyled initial={{ height: 0 }} animate={{ height: '55vh' }}

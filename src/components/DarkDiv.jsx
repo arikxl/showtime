@@ -7,15 +7,16 @@ const DarkDivStyle = styled.div`
     background-color: #282c34;
     bottom: 0;
     right: 50%;
-    width: ${props => props.isClick ? '50%' : '0%'};
-    height: ${props => props.isClick ? '100%' : '0%'};
+    width: ${props => props.isclick ? '50%' : '0%'};
+    height: ${props => props.isclick ? '100%' : '0%'};
     z-index:1;
     transition: height 0.5s ease , width 1s ease 0.5s;
 `;
 
-const DarkDiv = ({ isClick }) => {
+const DarkDiv = ({ isclick }) => {
+    
     return (
-        <DarkDivStyle isClick={isClick}></DarkDivStyle>
+        <DarkDivStyle isclick={isclick }></DarkDivStyle>
   )
 }
 

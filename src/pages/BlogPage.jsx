@@ -7,8 +7,9 @@ import BigTitle from '../components/BigTitle';
 import BlogCenter from '../components/BlogCenter';
 import PowerButton from '../components/PowerButton';
 import SocialIcons from '../components/SocialIcons';
+import { motion } from 'framer-motion';
 
-const BlogPageStyled = styled.main`
+const BlogPageStyled = styled(motion.div)`
   background-image: url('https://res.cloudinary.com/arikxl/image/upload/v1675717875/Ella2023/oo4fip5929ukgxq8feoz.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -24,6 +25,17 @@ const Container = styled.section`
   padding-bottom: 5rem;
 `;
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.5,
+      duration: 0.5
+    }
+  }
+}
+
 const BlogPage = () => {
 
   const [numbers, setNumbers] = useState(0);
@@ -34,14 +46,15 @@ const BlogPage = () => {
   }, [])
 
   return (
-    <BlogPageStyled>
+    <BlogPageStyled initial='hidden' variants={container}
+      animate='show' exit={{ opacity: 0, transition: { duration: 0.5 } }}>
       <Container>
         <PowerButton />
         <Logo />
         <SocialIcons />
         <BlogPen numbers={numbers} />
         <BlogCenter />
-        <BigTitle text="BLOG" top="5rem" left="5rem"/>
+        <BigTitle text="BLOG" top="5rem" left="5rem" />
       </Container>
     </BlogPageStyled>
   )

@@ -42,7 +42,7 @@ const Contact = styled.a`
 `;
 
 const About = styled(NavLink)`
-   color:${props => props.isClick ? props.theme.body : props.theme.text};
+    color:${props => props.isclick ==='true'   ? props.theme.body : props.theme.text};
     text-decoration: none;
     z-index: 1;
 
@@ -65,6 +65,8 @@ const Work = styled(Skills)`
     top: 50%; 
     left: calc(1rem + 2vw);
     transform: translate(-50%,-50%)  rotate(-90deg);
+    color:${props => props.isclick === 'true' ? props.theme.body : props.theme.text};
+
 `;
 
 const BottomBar = styled.section`
@@ -88,8 +90,8 @@ const rotate = keyframes`
 
 const Center = styled.button`
   position: absolute;
-  top:${props => props.isClick ? '85%' : '50%'};
-  left:${props => props.isClick ? '92%' : '50%'};
+  top:${props => props.isclick ? '85%' : '50%'};
+  left:${props => props.isclick ? '92%' : '50%'};
   border:none;
   transform: translate(-50%, -50%);
   outline: none;
@@ -106,28 +108,29 @@ const Center = styled.button`
   }
 
   &>:last-child{
-    display:${props => props.isClick ? 'none' : 'inline-block'};
+    display:${props => props.isclick ? 'none' : 'inline-block'};
     padding-top: 1rem;
   }
 `;
 
 const MainPage = () => {
 
-  const [isClick, setIsClick] = useState(false)
+  const [isclick, setIsClick] = useState(false)
+  const [isclick2, setIsClick2] = useState(false)
 
-  const handleClick = () => setIsClick(!isClick);
+  const handleClick = () => setIsClick(!isclick);
 
   return (
 
     <MainContainer>
       <Container>
         <PowerButton />
-        <Logo theme={isClick ? 'dark' : 'light'} />
-        <SocialIcons theme={isClick ? 'dark' : 'light'} />
-        <DarkDiv isClick={isClick} />
-        <Center isClick={isClick} onClick={() => handleClick()}>
+        <Logo theme={isclick ? 'dark' : 'light'} />
+        <SocialIcons theme={isclick ? 'dark' : 'light'} />
+        <DarkDiv isclick={isclick} />
+        <Center isclick={isclick} onClick={() => handleClick()}>
           <ReactSvg fill='currentColor'
-            width={isClick ? 120 : 200} height={isClick ? 120 : 200} />
+            width={isclick ? 120 : 200} height={isclick ? 120 : 200} />
           <span>Click here</span>
         </Center>
         <Contact href='mailto:arikxl@gmail.com' target='_blank'>
@@ -156,7 +159,7 @@ const MainPage = () => {
             whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
           >Blog</motion.h2>
         </Blog>
-        <Work to='/work' isClick={isClick}>
+        <Work to='/work' isclick={isclick.toString()}>
           <motion.h2
             initial={{
               y: -200,
@@ -170,7 +173,7 @@ const MainPage = () => {
           >Work</motion.h2>
         </Work>
         <BottomBar>
-          <About to='/about' isClick={isClick}>
+          <About to='/about' isclick={isclick.toString()}>
             <motion.h2
               initial={{
                 y: 200,
@@ -198,7 +201,7 @@ const MainPage = () => {
         </BottomBar>
 
       </Container>
-      {isClick ? <Intro isClick={isClick} /> : null}
+      {isclick ? <Intro /> : null}
     </MainContainer>
   )
 }

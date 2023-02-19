@@ -21,7 +21,7 @@ function App() {
       <GlobalStyle />
       <ThemeProvider theme={lightTheme}>
         <SoundBar />
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence wait>
           <Routes location={location} key={ location.pathname}>
             <Route path="/" element={<MainPage />} />
             <Route path="/about" element={<AboutPage />} />

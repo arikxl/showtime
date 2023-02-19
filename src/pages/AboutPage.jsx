@@ -64,6 +64,7 @@ const Box = styled.section`
     color: inherit;
     text-decoration: underLine;
     font-weight: bold;
+    text-decoration-color: #61dafb;;
   }
 
 `;
