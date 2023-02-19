@@ -1,5 +1,5 @@
-import React from 'react';
-import styled, {  ThemeProvider } from 'styled-components';
+import React, { useEffect, useRef } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
 
 import Logo from '../components/Logo';
 import PowerButton from '../components/PowerButton';
@@ -11,8 +11,8 @@ import { ReactSvg } from '../components/AllSvg';
 
 const Main = styled.main`
   background-color:${props => props.theme.body};
-  width: 100vw;
-  height: 100vh;
+
+  height: 400vh;
   position: relative;
   overflow: hidden;
 `;
@@ -27,24 +27,53 @@ const Box = styled.section`
   color: white;
 `;
 
+const Rotate = styled.span`
+  position: fixed;
+  bottom: 1rem;
+  right:1rem;
+  width: 80px;
+  height: 80px;
+  display: block;
+  z-index:1;
+`;
+
 const WorkPage = () => {
+
+  const ref = useRef();
+  const react = useRef();
+
+  useEffect(() => {
+    let element = ref.current;
+
+    const rotate = () => {
+      element.style.transform = `translateX(${-window.pageYOffset}px)`;
+      return (react.current.style.transform = "rotate(" + -window.pageYOffset +  "deg)");
+    }
+
+
+    window.addEventListener('scroll', rotate)
+    return () => window.removeEventListener('scroll', rotate);
+  }, [])
+
   return (
     <ThemeProvider theme={darkTheme}>
       <Main>
         <Logo theme='dark' />
         <SocialIcons theme='dark' />
         <PowerButton />
-        
-        <Box>
+
+        <Box ref={ref}>
           {
             Work.map(w =>
-              
-              <WorkCard key={w.id} work={ w} />
 
-              )
+              <WorkCard key={w.id} work={w} />
+
+            )
           }
         </Box>
-        <ReactSvg width={120} height={ 120} />
+        <Rotate ref={react }>
+          <ReactSvg width={80} height={80} />
+        </Rotate>
       </Main>
 
     </ThemeProvider>
