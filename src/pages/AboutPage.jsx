@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { keyframes, ThemeProvider } from 'styled-components';
 
 import Logo from '../components/Logo';
+import BigTitle from '../components/BigTitle';
 import PowerButton from '../components/PowerButton';
 import SocialIcons from '../components/SocialIcons';
 import BlogParticle from '../components/BlogParticle';
@@ -96,9 +97,8 @@ const AboutPage = () => {
 
           <a href=" tel:+972-506860169">Let's talk</a>
         </Box>
-
+        <BigTitle text="ABOUT" top="10%" left="5%"/>
       </Main>
-
     </ThemeProvider>
   )
 }

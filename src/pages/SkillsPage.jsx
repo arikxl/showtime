@@ -2,11 +2,12 @@ import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
 import Logo from '../components/Logo';
+import BigTitle from '../components/BigTitle';
 import PowerButton from '../components/PowerButton';
 import SocialIcons from '../components/SocialIcons';
 import BlogParticle from '../components/BlogParticle';
 import { lightTheme } from '../style/Themes';
-import {  Develope, Education } from '../components/AllSvg';
+import { Develope, Education } from '../components/AllSvg';
 
 const Main = styled.main`
   background-color:${props => props.theme.body};
@@ -80,7 +81,7 @@ const SkillsPage = () => {
         <Logo theme='light' />
         <SocialIcons theme='light' />
         <PowerButton />
-        <BlogParticle theme='light'/>
+        <BlogParticle theme='light' />
         <Box>
           <Title>
             <Education width={40} height={40} />
@@ -111,7 +112,7 @@ const SkillsPage = () => {
           </Title>
           <Description>
             From the planning phase to build.
-            <br/>
+            <br />
             Bringing new ideas to life.
           </Description>
           <Description>
@@ -123,6 +124,7 @@ const SkillsPage = () => {
             <p>VScode, Github, WordPress etc.</p>
           </Description>
         </Box>
+        <BigTitle text="SKILLS" top="80%" right="30%" />
       </Main>
     </ThemeProvider>
   )

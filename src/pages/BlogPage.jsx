@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import Logo from '../components/Logo';
-import BlogCenter from '../components/BlogCenter';
 import BlogPen from '../components/BlogPen';
+import BigTitle from '../components/BigTitle';
+import BlogCenter from '../components/BlogCenter';
 import PowerButton from '../components/PowerButton';
 import SocialIcons from '../components/SocialIcons';
 
@@ -30,16 +31,17 @@ const BlogPage = () => {
   useEffect(() => {
     let num = (window.innerHeight - 70) / 20;
     setNumbers(parseInt(num))
-  },[])
+  }, [])
 
   return (
     <BlogPageStyled>
       <Container>
         <PowerButton />
-        <Logo  />
+        <Logo />
         <SocialIcons />
-        <BlogPen numbers={numbers } />
+        <BlogPen numbers={numbers} />
         <BlogCenter />
+        <BigTitle text="BLOG" top="5rem" left="5rem"/>
       </Container>
     </BlogPageStyled>
   )
