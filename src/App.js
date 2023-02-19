@@ -1,30 +1,36 @@
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+import { AnimatePresence } from 'framer-motion';
 
-// import './style/App.css';
-import GlobalStyle from './style/GlobalStyles';
+import SoundBar from './components/SoundBar';
 import MainPage from './pages/MainPage';
-import AboutPage from './pages/AboutPage';
-import SkillsPage from './pages/SkillsPage';
 import WorkPage from './pages/WorkPage';
 import BlogPage from './pages/BlogPage';
-import { Route, Routes } from 'react-router-dom';
-import { darkTheme, lightTheme } from './style/Themes';
+import AboutPage from './pages/AboutPage';
+import SkillsPage from './pages/SkillsPage';
+import GlobalStyle from './style/GlobalStyles';
 import NotFoundPage from './pages/NotFoundPage';
+import { darkTheme, lightTheme } from './style/Themes';
 
 function App() {
+
+  const location = useLocation();
+
   return (
     <>
       <GlobalStyle />
-      <ThemeProvider theme={lightTheme }>
-        
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/skills" element={<SkillsPage />} />
-          <Route path="/work" element={<WorkPage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <ThemeProvider theme={lightTheme}>
+        <SoundBar />
+        <AnimatePresence exitBeforeEnter>
+          <Routes location={location} key={ location.pathname}>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/skills" element={<SkillsPage />} />
+            <Route path="/work" element={<WorkPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </AnimatePresence>
 
       </ThemeProvider>
     </>

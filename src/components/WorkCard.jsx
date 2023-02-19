@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+
 import { Github } from './AllSvg';
 
-const Box = styled.li`
+const Box = styled(motion.li)`
     width: 16rem;
     height:40vh;
     background-color:${props => props.theme.text};
@@ -73,12 +74,25 @@ const Footer = styled.footer`
     }
 `;
 
+const item = {
+    hidden: {
+        scale: 0
+    },
+    show: {
+        scale: 1,
+        transition: {
+            type: 'spring',
+            duration: 0.5
+        }
+    }
+}
+
 const WorkCard = ({ work }) => {
 
     const { id, name, description, tags, demo, github } = work;
 
     return (
-        <Box>
+        <Box key={id} variants={ item}>
             <Title>{name}</Title>
             <Desc>{description}</Desc>
             <Tags>

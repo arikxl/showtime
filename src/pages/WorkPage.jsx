@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
+import { motion } from 'framer-motion';
 
 import Logo from '../components/Logo';
 import BigTitle from '../components/BigTitle';
@@ -18,7 +19,7 @@ const Main = styled.main`
   align-items: center;
 `;
 
-const Box = styled.section`
+const Box = styled(motion.ul)`
   position: fixed;
   top: 12rem;
   left: calc(10rem + 15vw);
@@ -36,6 +37,17 @@ const Rotate = styled.span`
   display: block;
   z-index:1;
 `;
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.5,
+      duration:0.5
+    }
+  }
+}
 
 const WorkPage = () => {
 
@@ -60,7 +72,7 @@ const WorkPage = () => {
         <Logo theme='dark' />
         <SocialIcons theme='dark' />
         <PowerButton />
-        <Box ref={ref}>
+        <Box ref={ref} variants={ container} initial='hidden' animate='show'>
           {
             Work.map(w =>
               <WorkCard key={w.id} work={w} />
