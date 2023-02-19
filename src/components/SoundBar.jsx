@@ -2,13 +2,14 @@ import React, { useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import music from '../assets/audio/music.mp3';
+import funny from '../assets/audio/funny.mp3';
 
 const Box = styled.section`
     display: flex;
     cursor: pointer;
     position: fixed;
     left: 12rem;
-    top: 3rem;
+    top: 2.6rem;
     z-index: 10;
 
     &>*:nth-child(1){
@@ -74,7 +75,7 @@ const SoundBar = () => {
             <Line click={click} />
             <Line click={click} />
             <Line click={click} />
-            <audio src={music} ref={ref} loop />
+            <audio src={funny} ref={ref} loop />
         </Box>
     )
 }

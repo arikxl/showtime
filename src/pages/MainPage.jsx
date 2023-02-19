@@ -126,32 +126,79 @@ const MainPage = () => {
         <SocialIcons theme={isClick ? 'dark' : 'light'} />
         <DarkDiv isClick={isClick} />
         <Center isClick={isClick} onClick={() => handleClick()}>
-          <ReactSvg  fill='currentColor'
+          <ReactSvg fill='currentColor'
             width={isClick ? 120 : 200} height={isClick ? 120 : 200} />
           <span>Click here</span>
         </Center>
         <Contact href='mailto:arikxl@gmail.com' target='_blank'>
-          <motion.h2 whileHover={{scale:1.1}} whileTap={{scale:0.9}}>
+          <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
+            initial={{
+              y: -200,
+              transition: { type: 'spring', duration: 1.5, delay: 1 }
+            }}
+            animate={{
+              y: 0,
+              transition: { type: 'spring', duration: 1.5, delay: 1 }
+            }}>
             Say hi...
           </motion.h2>
         </Contact>
         <Blog to='/blog'>
-          <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>Blog</motion.h2>
+          <motion.h2
+            initial={{
+              y: -200,
+              transition: { type: 'spring', duration: 1.5, delay: 1 }
+            }}
+            animate={{
+              y: 0,
+              transition: { type: 'spring', duration: 1.5, delay: 1 }
+            }}
+            whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
+          >Blog</motion.h2>
         </Blog>
         <Work to='/work' isClick={isClick}>
-          <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>Work</motion.h2>
+          <motion.h2
+            initial={{
+              y: -200,
+              transition: { type: 'spring', duration: 1.5, delay: 1 }
+            }}
+            animate={{
+              y: 0,
+              transition: { type: 'spring', duration: 1.5, delay: 1 }
+            }}
+            whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
+          >Work</motion.h2>
         </Work>
         <BottomBar>
           <About to='/about' isClick={isClick}>
-            <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>About.</motion.h2>
+            <motion.h2
+              initial={{
+                y: 200,
+                transition: { type: 'spring', duration: 1.5, delay: 1 }
+              }}
+              animate={{
+                y: 0,
+                transition: { type: 'spring', duration: 1.5, delay: 1 }
+              }}
+              whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
+            >About.</motion.h2>
           </About>
           <Skills to='/skills'>
-            <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>My Skills.</motion.h2>
+            <motion.h2 initial={{
+              y: 200,
+              transition: { type: 'spring', duration: 1.5, delay: 1 }
+            }}
+              animate={{
+                y: 0,
+                transition: { type: 'spring', duration: 1.5, delay: 1 }
+              }}
+              whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
+            >My Skills.</motion.h2>
           </Skills>
         </BottomBar>
 
       </Container>
-      {isClick ? <Intro isClick={isClick } /> : null }
+      {isClick ? <Intro isClick={isClick} /> : null}
     </MainContainer>
   )
 }
