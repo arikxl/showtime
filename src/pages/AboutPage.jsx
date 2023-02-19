@@ -92,7 +92,7 @@ const AboutPage = () => {
           {/* I'm an independent freelancer and also a teacher. */}
           <br /> <br />
           My finest creation (a real piece of art) are my two kids.
-          Most of the inspiration comes from them.
+          Most of my inspiration comes from them.
 
           <a href=" tel:+972-506860169">Let's talk</a>
         </Box>
