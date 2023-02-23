@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components';
 
 import music from '../assets/audio/music.mp3';
 import funny from '../assets/audio/funny.mp3';
+import { mediaQueries } from '../style/Themes';
 
 const Box = styled.section`
     display: flex;
@@ -27,6 +28,11 @@ const Box = styled.section`
     &>*:nth-child(5){
         animation-delay: 0.8s;
     }
+
+    ${mediaQueries(40)`
+        left:1rem;
+        top:5rem;
+  `};
 `;
 
 const play = keyframes`

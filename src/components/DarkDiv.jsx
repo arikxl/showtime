@@ -5,8 +5,8 @@ import { mediaQueries } from '../style/Themes';
 const DarkDivStyle = styled.div`
     position: absolute;
     top: 0;
-    background-color: #282c34;
     bottom: 0;
+    background-color: #282c34;
     right: 50%;
     width: ${props => props.isclick ? '50%' : '0%'};
     height: ${props => props.isclick ? '100%' : '0%'};
@@ -14,27 +14,22 @@ const DarkDivStyle = styled.div`
     transition: height 0.5s ease , width 1s ease 0.5s;
 
     
-      ${(props) =>
-    props.isclick
-            ? mediaQueries(50)`
-       height: 50%;
-  right:0;
+    ${(props) => props.isclick ? mediaQueries(50)`
+        height: 50%;
+        right:0;
+        width: 100%;
+        transition: width 0.5s ease, height 1s ease 0.5s;`
   
-  width: 100%;
-  transition: width 0.5s ease, height 1s ease 0.5s;
-
-  `
-            : mediaQueries(50)`
-       height: 0;
-  
-  width: 0;
-  `};
+      : mediaQueries(50)`
+        height: 0;
+        width: 0;
+    `};
 `;
 
 const DarkDiv = ({ isclick }) => {
-    
-    return (
-        <DarkDivStyle isclick={isclick }></DarkDivStyle>
+
+  return (
+    <DarkDivStyle isclick={isclick}></DarkDivStyle>
   )
 }
 

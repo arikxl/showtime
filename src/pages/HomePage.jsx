@@ -117,8 +117,8 @@ const Center = styled.button`
     height: ${(props) => (props.isclick ? "80px" : "150px")};
   }
   @media only screen and (max-width: 30em) {
-    width: ${(props) => (props.isclick ? "40px" : "150px")};
-    height: ${(props) => (props.isclick ? "40px" : "150px")};
+    width: ${(props) => (props.isclick ? "72px" : "150px")};
+    height: ${(props) => (props.isclick ? "72px" : "150px")};
   }
 `;
 
@@ -128,10 +128,26 @@ const HomePage = () => {
   const [isclick, setIsClick] = useState(false)
   const handleClick = () => setIsClick(!isclick);
   const mq = window.matchMedia("(max-width: 50em)").matches;
+  const [path, setpath] = useState("");
+
+
+  const moveY = {
+    y: "-100%",
+  };
+  const moveX = {
+    x: `${path === "work" ? "100%" : "-100%"}`,
+  };
 
   return (
     <Suspense fallback={<Loader />}>
-      <MainContainer>
+      <MainContainer
+        key="modal"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={path === "about" || path === "skills" ? moveY : moveX}
+        transition={{ duration: 0.5 }}
+      >
+        <DarkDiv isclick={isclick} />
         <Container>
           <PowerButton />
           <Logo theme={isclick ? 'dark' : 'light'} />
@@ -142,11 +158,12 @@ const HomePage = () => {
             <SocialIcons theme={isclick ? 'dark' : 'light'} />
           )}
 
-          <DarkDiv isclick={isclick} />
+
 
           <Center isclick={isclick} onClick={() => handleClick()}>
+
             <ReactSvg fill='currentColor'
-              width={isclick ? 120 : 200} height={isclick ? 120 : 200} />
+              width={isclick ? 150 : 200} height={isclick ? 150 : 200} />
             <span>Click me</span>
           </Center>
 
@@ -203,9 +220,8 @@ const HomePage = () => {
               >My Skills.</motion.h2>
             </Skills>
           </BottomBar>
-
         </Container>
-        {isclick ? <Intro /> : null}
+        {isclick ? <Intro isclick={isclick} /> : null}
       </MainContainer>
     </Suspense>
   )
