@@ -1,16 +1,19 @@
-import React, { lazy, useState } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 
 import Intro from '../components/Intro';
+import Loader from '../components/Loader';
 import DarkDiv from '../components/DarkDiv';
 import { ReactSvg } from '../components/AllSvg';
 import { mediaQueries } from '../style/Themes';
 
 const Logo = lazy(() => import('../components/Logo'));
+const Contact = lazy(() => import('../components/Contact'));
 const PowerButton = lazy(() => import('../components/PowerButton'));
 const SocialIcons = lazy(() => import('../components/SocialIcons'));
+const ShowCaseLinkFromHome = lazy(() => import('../components/ShowCaseLinkFromHome'));
 
 const MainContainer = styled.main`
   background: ${props => props.theme.body};
@@ -40,55 +43,27 @@ const Container = styled.section`
   padding:2rem;
 `;
 
-const Contact = styled.a`
-    color: ${(props) => (props.isclick==='true' ? props.theme.body : props.theme.text)};
-    position: absolute;
-    top: 2rem;
-    right: calc(1rem + 2vw);
-    text-decoration: none;
-    z-index: 1;
-
-    :hover{
-      color: #61dafb;
-    }
-`;
-
 const About = styled(NavLink)`
-    color:${props => props.isclick ==='true'   ? props.theme.body : props.theme.text};
+    color:${props => props.isclick ? props.theme.body : props.theme.text};
     text-decoration: none;
     z-index: 1;
 
     :hover{
       color: #61dafb;
     }
-    /* @media only screen and (max-width: 50em) {
-      color:${props =>  props.theme.text };
-  } */
-`;
-
-const Blog = styled(About)`
-    color: ${(props) => (props.isclick ? props.theme.body : props.theme.text)};
-
-    position: absolute;
-    top: 50%;
-    right: calc(1rem + 2vw);
-    transform: rotate(90deg) translate(-50%,-50%);
-
-      @media only screen and (max-width: 50em) {
-    text-shadow: ${(props) => (props.isclick ? "0 0 4px #000" : "none")};
-  }
 `;
 
 const Skills = styled(About)``;
 
-const Work = styled(Skills)`
+const Blog = styled(Skills)`
     position: absolute;
-    top: 50%; 
+    top: 48%; 
     left: calc(1rem + 2vw);
     transform: translate(-50%,-50%)  rotate(-90deg);
-    color:${props => props.isclick === 'true' ? props.theme.body : props.theme.text};
+    color:${props => props.isclick ? props.theme.body : props.theme.text};
+    
     @media only screen and (max-width: 50em) {
-    text-shadow: ${(props) => (props.isclick ? "0 0 4px #000" : "none")};
+      text-shadow: ${(props) => (props.isclick ? "0 0 4px #000" : "none")};
   }
 `;
 
@@ -147,6 +122,7 @@ const Center = styled.button`
   }
 `;
 
+
 const HomePage = () => {
 
   const [isclick, setIsClick] = useState(false)
@@ -154,106 +130,84 @@ const HomePage = () => {
   const mq = window.matchMedia("(max-width: 50em)").matches;
 
   return (
+    <Suspense fallback={<Loader />}>
+      <MainContainer>
+        <Container>
+          <PowerButton />
+          <Logo theme={isclick ? 'dark' : 'light'} />
 
-    <MainContainer>
-      <Container>
-        <PowerButton />
-        <Logo theme={isclick ? 'dark' : 'light'} />
+          {mq ? (
+            <SocialIcons theme='light' />
+          ) : (
+            <SocialIcons theme={isclick ? 'dark' : 'light'} />
+          )}
 
-        {mq ? (
-          <SocialIcons theme='light' />
-        ) : (
-            <SocialIcons theme={isclick ? 'light' : 'dark'} />
-        )}
+          <DarkDiv isclick={isclick} />
 
-        {/* <SocialIcons theme={isclick ? 'dark' : 'light'} /> */}
-        <DarkDiv isclick={isclick} />
+          <Center isclick={isclick} onClick={() => handleClick()}>
+            <ReactSvg fill='currentColor'
+              width={isclick ? 120 : 200} height={isclick ? 120 : 200} />
+            <span>Click me</span>
+          </Center>
 
-        <Center isclick={isclick} onClick={() => handleClick()}>
-          <ReactSvg fill='currentColor'
-            width={isclick ? 120 : 200} height={isclick ? 120 : 200} />
-          <span>Click here</span>
-        </Center>
+          {mq ? (
+            <>
+              <Contact theme="light" isclick={isclick} />
+              <ShowCaseLinkFromHome theme="light" isclick={isclick} />
+            </>
+          ) : (
+            <>
+              <Contact theme={isclick ? 'dark' : 'light'} />
+              <ShowCaseLinkFromHome theme={isclick ? 'dark' : 'light'} />
+            </>
+          )}
 
-        {mq ? (
-          <Contact theme="light"   />
-        ) : (
-            <Contact theme={isclick ? 'light' : 'dark'} />
-        )}
-
-         <Contact href='mailto:arikxl@gmail.com' target='_blank' isclick={isclick }>
-          <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
-            initial={{
-              y: -200,
-              transition: { type: 'spring', duration: 1.5, delay: 1 }
-            }}
-            animate={{
-              y: 0,
-              transition: { type: 'spring', duration: 1.5, delay: 1 }
-            }}>
-            Say hi...
-          </motion.h2>
-        </Contact> 
-
-
-
-        <Blog to='/blog' isclick={isclick.toString() }>
-          <motion.h2
-            initial={{
-              y: -200,
-              transition: { type: 'spring', duration: 1.5, delay: 1 }
-            }}
-            animate={{
-              y: 0,
-              transition: { type: 'spring', duration: 1.5, delay: 1 }
-            }}
-            whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
-          >Blog</motion.h2>
-        </Blog>
-        <Work to='/work' isclick={isclick.toString()}>
-          <motion.h2
-            initial={{
-              y: -200,
-              transition: { type: 'spring', duration: 1.5, delay: 1 }
-            }}
-            animate={{
-              y: 0,
-              transition: { type: 'spring', duration: 1.5, delay: 1 }
-            }}
-            whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
-          >Work</motion.h2>
-        </Work>
-        <BottomBar>
-          <About to='/about' isclick={isclick.toString()}>
+          <Blog to='/blog' isclick={isclick}>
             <motion.h2
               initial={{
+                y: -200,
+                transition: { type: 'spring', duration: 1.5, delay: 1 }
+              }}
+              animate={{
+                y: 0,
+                transition: { type: 'spring', duration: 1.5, delay: 1 }
+              }}
+              whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
+            >Blog</motion.h2>
+          </Blog>
+          <BottomBar>
+            <About to='/about' isclick={mq ? +false : +isclick} >
+              <motion.h2
+                initial={{
+                  y: 200,
+                  transition: { type: 'spring', duration: 1.5, delay: 1 }
+                }}
+                animate={{
+                  y: 0,
+                  transition: { type: 'spring', duration: 1.5, delay: 1 }
+                }}
+                whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
+              >About.</motion.h2>
+            </About>
+
+            <Skills to='/skills' >
+              <motion.h2 initial={{
                 y: 200,
                 transition: { type: 'spring', duration: 1.5, delay: 1 }
               }}
-              animate={{
-                y: 0,
-                transition: { type: 'spring', duration: 1.5, delay: 1 }
-              }}
-              whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
-            >About.</motion.h2>
-          </About>
-          <Skills to='/skills' >
-            <motion.h2 initial={{
-              y: 200,
-              transition: { type: 'spring', duration: 1.5, delay: 1 }
-            }}
-              animate={{
-                y: 0,
-                transition: { type: 'spring', duration: 1.5, delay: 1 }
-              }}
-              whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
-            >My Skills.</motion.h2>
-          </Skills>
-        </BottomBar>
+                animate={{
+                  y: 0,
+                  transition: { type: 'spring', duration: 1.5, delay: 1 }
+                }}
+                whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
+              >My Skills.</motion.h2>
+            </Skills>
+          </BottomBar>
 
-      </Container>
-      {isclick ? <Intro /> : null}
-    </MainContainer>
+        </Container>
+        {isclick ? <Intro /> : null}
+      </MainContainer>
+    </Suspense>
   )
 }
 
