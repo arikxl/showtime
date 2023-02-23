@@ -16,7 +16,13 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         overflow-x: hidden;
-        font-family: 'Source Sans Pro', sans-serif;
+        /* font-family: 'Source Sans Pro', sans-serif; */
+        font-family: -apple-system, BlinkMacSystemFont,  'Source Sans Pro', sans-serif;
+        -webkit-font-smoothing: antialiased; 
+        -moz-osx-font-smoothing: grayscale;  
+
+        /* background-color: #282c34;
+        color: #61dafb; */
 
     }
     ::selection{
