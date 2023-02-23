@@ -125,27 +125,24 @@ const Center = styled.button`
 
 const HomePage = () => {
 
+  const [path, setPath] = useState("");
   const [isclick, setIsClick] = useState(false)
-  const handleClick = () => setIsClick(!isclick);
   const mq = window.matchMedia("(max-width: 50em)").matches;
-  const [path, setpath] = useState("");
 
+  const handleClick = () => setIsClick(!isclick);
 
   const moveY = {
     y: "-100%",
   };
   const moveX = {
-    x: `${path === "work" ? "100%" : "-100%"}`,
+    x: `${path === "blog" ? "100%" : "-100%"}`,
   };
 
   return (
     <Suspense fallback={<Loader />}>
-      <MainContainer
-        key="modal"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+      <MainContainer key="modal" transition={{ duration: 0.5 }}
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }}
         exit={path === "about" || path === "skills" ? moveY : moveX}
-        transition={{ duration: 0.5 }}
       >
         <DarkDiv isclick={isclick} />
         <Container>
@@ -158,10 +155,7 @@ const HomePage = () => {
             <SocialIcons theme={isclick ? 'dark' : 'light'} />
           )}
 
-
-
           <Center isclick={isclick} onClick={() => handleClick()}>
-
             <ReactSvg fill='currentColor'
               width={isclick ? 150 : 200} height={isclick ? 150 : 200} />
             <span>Click me</span>
@@ -170,17 +164,19 @@ const HomePage = () => {
           {mq ? (
             <>
               <Contact theme="light" isclick={isclick} />
-              <ShowCaseLinkFromHome theme="light" isclick={isclick} />
+              <ShowCaseLinkFromHome theme="light" isclick={isclick}
+                onClick={() => setPath("work")} />
             </>
           ) : (
             <>
               <Contact theme={isclick ? 'dark' : 'light'} />
-              <ShowCaseLinkFromHome theme={isclick ? 'dark' : 'light'} />
+              <ShowCaseLinkFromHome theme={isclick ? 'dark' : 'light'}
+                onClick={() => setPath("work")} />
             </>
           )}
 
-          <Blog to='/blog' isclick={isclick}>
-            <motion.h2
+          <Blog to='/blog' isclick={isclick} >
+            <motion.h2  onClick={() => setPath('blog')}
               initial={{
                 y: -200,
                 transition: { type: 'spring', duration: 1.5, delay: 1 }
@@ -194,7 +190,7 @@ const HomePage = () => {
           </Blog>
           <BottomBar>
             <About to='/about' isclick={mq ? +false : +isclick} >
-              <motion.h2
+              <motion.h2 onClick={() => setPath("about")}
                 initial={{
                   y: 200,
                   transition: { type: 'spring', duration: 1.5, delay: 1 }
@@ -206,18 +202,18 @@ const HomePage = () => {
                 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
               >About.</motion.h2>
             </About>
-
             <Skills to='/skills' >
-              <motion.h2 initial={{
-                y: 200,
-                transition: { type: 'spring', duration: 1.5, delay: 1 }
-              }}
+              <motion.h2 onClick={() => setPath("skills")}
+                initial={{
+                  y: 200,
+                  transition: { type: 'spring', duration: 1.5, delay: 1 }
+                }}
                 animate={{
                   y: 0,
                   transition: { type: 'spring', duration: 1.5, delay: 1 }
                 }}
                 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
-              >My Skills.</motion.h2>
+              >Skills.</motion.h2>
             </Skills>
           </BottomBar>
         </Container>

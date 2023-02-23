@@ -27,7 +27,7 @@ const IntroStyled = styled(motion.div)`
     background-repeat: no-repeat;
     background-size:100% 2px;
     z-index: 1;
-
+    
     ${mediaQueries(1200)`
         width: 65vw;
   `};
@@ -170,9 +170,8 @@ const Intro = () => {
                 <Text>
                     <h1>Shalom,</h1>
                     <h3>I'm Arik Alexandrov.</h3>
-                        {mq && <br/> }
-                    <h6 >Coding beautiful solutions,
-                        {mq && <br/> }
+                    {mq && <br />}
+                    <h6 >Coding beautiful solutions, {mq && <br />}
                         with a passion for education.
                     </h6>
                 </Text>
