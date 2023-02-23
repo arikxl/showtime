@@ -45,7 +45,8 @@ const SocialIcons = (props) => {
                 animate={{ scale: [0, 1, 1.5, 1] }}
                 transition={{ type: 'spring', duration: 1, delay: 1 }}
             >
-                <a href='https://github.com/arikxl' target="_blank" rel="noreferrer">
+                <a href='https://github.com/arikxl' target="_blank" rel="noreferrer"
+                    style={{ color: "inherit" }}>
                     <Github width={25} height={25}
                         fill={props.theme === 'dark' ? darkTheme.text : darkTheme.body} />
                 </a>
