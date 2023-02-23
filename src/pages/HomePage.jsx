@@ -221,7 +221,7 @@ const HomePage = () => {
             </Skills>
           </BottomBar>
         </Container>
-        {isclick ? <Intro isclick={isclick} /> : null}
+        {isclick ? <Intro /> : null}
       </MainContainer>
     </Suspense>
   )

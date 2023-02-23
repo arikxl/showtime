@@ -17,6 +17,8 @@ const ShowCaseLinkStyle = styled(NavLink)`
 
     @media only screen and (max-width: 50em) {
         text-shadow: ${(props) => (props.isclick ? "0 0 4px #000" : "none")};
+            right: calc(1rem );
+
     }
 `;
 
