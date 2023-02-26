@@ -19,10 +19,11 @@ const Box = styled(motion.li)`
     border: 1px solid ${props => props.theme.body};
     transition: all 0.2s ease;
 
+
     &:hover{
-        border: 1px solid ${props => props.theme.text};
+        border: 1px solid #61dafb;
         background-color:${props => props.theme.body};
-        color:${props => props.theme.text};
+        color:#61dafb;
     }
 `;
 
@@ -41,7 +42,7 @@ const Tags = styled.div`
     display: flex;
     flex-wrap: wrap;
     ${Box}:hover &{
-        border-top: 2px solid ${props => props.theme.text}
+        border-top: 2px solid #61dafb;
     }
 `;
 const Tag = styled.span`
@@ -62,14 +63,14 @@ const Footer = styled.footer`
 
         ${Box}:hover &{
             color:  ${props => props.theme.body};
-            background-color:  ${props => props.theme.text};
+            background-color: #61dafb;
         }
     }
 
     .github{
         fill:${props => props.theme.body};
         ${Box}:hover &{
-            fill:  ${props => props.theme.text};
+            fill: #61dafb;
         }
     }
 `;

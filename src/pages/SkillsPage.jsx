@@ -1,7 +1,8 @@
-import React, { lazy } from 'react';
+import React, { lazy, Suspense } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
 import { Develope, Education } from '../components/AllSvg';
+import Loader from '../components/Loader';
 import { lightTheme, mediaQueries } from '../style/Themes';
 
 const Logo = lazy(() => import('../components/Logo'));
@@ -135,6 +136,8 @@ const Description = styled.div`
 const SkillsPage = () => {
   return (
     <ThemeProvider theme={lightTheme}>
+      <Suspense fallback={<Loader />}>
+
       <Main>
         <Logo theme='light' />
         <SocialIcons theme='light' />
@@ -183,7 +186,8 @@ const SkillsPage = () => {
           </Description>
         </Box>
         <BigTitle text="SKILLS" top="80%" right="20%" />
-      </Main>
+        </Main>
+        </Suspense>
     </ThemeProvider>
   )
 }
