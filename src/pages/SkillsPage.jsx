@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
-import Logo from '../components/Logo';
-import BigTitle from '../components/BigTitle';
-import PowerButton from '../components/PowerButton';
-import SocialIcons from '../components/SocialIcons';
-import BlogParticle from '../components/BlogParticle';
-import { lightTheme } from '../style/Themes';
 import { Develope, Education } from '../components/AllSvg';
+import { lightTheme, mediaQueries } from '../style/Themes';
+
+const Logo = lazy(() => import('../components/Logo'));
+const BigTitle = lazy(() => import('../components/BigTitle'));
+const SocialIcons = lazy(() => import('../components/SocialIcons'));
+const PowerButton = lazy(() => import('../components/PowerButton'));
+const BlogParticle = lazy(() => import('../components/BlogParticle'));
 
 const Main = styled.main`
   background-color:${props => props.theme.body};
@@ -17,6 +18,22 @@ const Main = styled.main`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+
+  ${mediaQueries(50)`
+    flex-direction:column-reverse;  
+    padding:8rem 0;
+    height:auto;
+
+    &>*:nth-child(5){
+      margin-top:5rem;
+    }       
+  `};
+
+  ${mediaQueries(30)`
+    &>*:nth-child(5){
+      margin-bottom:4rem;
+    }       
+  `};
 `;
 
 const Box = styled.section`
@@ -39,6 +56,15 @@ const Box = styled.section`
     color:${props => props.theme.body};
     background-color: ${props => props.theme.text};
   }
+
+  ${mediaQueries(60)`
+     height: 55vh;
+  `};
+
+  ${mediaQueries(50)`
+    width: 50vw;
+    height: max-content;
+  `};
 `;
 
 const Title = styled.h2`
@@ -47,12 +73,32 @@ const Title = styled.h2`
   align-items: center;
   font-size: calc(1em + 1vw);
 
-    ${Box}:hover &{
+  ${Box}:hover &{
     fill: ${props => props.theme.body};
   }
   &>*:first-child{
     margin-right: 1rem;
   }
+
+  ${mediaQueries(60)`
+    font-size:calc(0.8em + 1vw);
+  `};
+
+  ${mediaQueries(50)`
+    font-size:calc(1em + 2vw);
+    margin-bottom:1rem;
+  `};
+
+  ${mediaQueries(30)`
+    font-size:calc(1em + 1vw);
+  `};
+  ${mediaQueries(25)`
+    font-size:calc(0.8em + 1vw);
+    svg{
+      width:30px;
+      height:30px;
+    }
+  `};
 `;
 
 const Description = styled.div`
@@ -72,6 +118,18 @@ const Description = styled.div`
     color:${props => props.theme.body};
     background-color: ${props => props.theme.text};
   }
+
+  ${mediaQueries(50)`
+    font-size: calc(0.8em + 1vw);
+  `};
+
+  ${mediaQueries(30)`
+    font-size:calc(0.7em + 1vw);
+  `};
+
+  ${mediaQueries(25)`
+    font-size:calc(0.5em + 1vw);
+  `};
 `;
 
 const SkillsPage = () => {
@@ -124,7 +182,7 @@ const SkillsPage = () => {
             <p>VScode, Github, WordPress etc.</p>
           </Description>
         </Box>
-        <BigTitle text="SKILLS" top="80%" right="30%" />
+        <BigTitle text="SKILLS" top="80%" right="20%" />
       </Main>
     </ThemeProvider>
   )
