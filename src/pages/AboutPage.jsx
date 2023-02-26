@@ -93,9 +93,9 @@ const Box = styled(motion.div)`
 
 const AboutPage = () => {
   return (
-    <Suspense fallback={<Loader />}>
 
-      <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={darkTheme}>
+      <Suspense fallback={<Loader />}>
         <Main>
           <Logo theme='dark' />
           <SocialIcons theme='dark' />
@@ -123,8 +123,8 @@ const AboutPage = () => {
           </Box>
           <BigTitle text="ABOUT" top="10%" left="5%" />
         </Main>
-      </ThemeProvider>
-    </Suspense >
+      </Suspense >
+    </ThemeProvider>
   )
 }
 

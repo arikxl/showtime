@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-import music from '../assets/audio/music.mp3';
+// import music from '../assets/audio/music.mp3';
 import funny from '../assets/audio/funny.mp3';
 import { mediaQueries } from '../style/Themes';
 
@@ -57,6 +57,11 @@ const Line = styled.span`
 
     animation: ${play} 1s ease infinite;
     animation-play-state: ${props => props.click ? "running" : "paused"};
+
+    ${mediaQueries(40)`
+        height:0.5rem;
+        width:1px;
+    `};
 `;
 
 const SoundBar = () => {

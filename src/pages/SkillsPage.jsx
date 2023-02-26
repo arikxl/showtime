@@ -1,8 +1,8 @@
 import React, { lazy, Suspense } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
-import { Develope, Education } from '../components/AllSvg';
 import Loader from '../components/Loader';
+import { Develope, Education } from '../components/AllSvg';
 import { lightTheme, mediaQueries } from '../style/Themes';
 
 const Logo = lazy(() => import('../components/Logo'));
@@ -54,7 +54,7 @@ const Box = styled.section`
   justify-content: space-between;
 
   &:hover{
-    color:${props => props.theme.body};
+    color:#61dafb;
     background-color: ${props => props.theme.text};
   }
 
@@ -75,7 +75,7 @@ const Title = styled.h2`
   font-size: calc(1em + 1vw);
 
   ${Box}:hover &{
-    fill: ${props => props.theme.body};
+    fill: #61dafb;
   }
   &>*:first-child{
     margin-right: 1rem;
@@ -116,7 +116,7 @@ const Description = styled.div`
     margin-left:2rem;
   }
     ${Box}:hover &{
-    color:${props => props.theme.body};
+    color:#61dafb;
     background-color: ${props => props.theme.text};
   }
 
@@ -137,57 +137,56 @@ const SkillsPage = () => {
   return (
     <ThemeProvider theme={lightTheme}>
       <Suspense fallback={<Loader />}>
-
-      <Main>
-        <Logo theme='light' />
-        <SocialIcons theme='light' />
-        <PowerButton />
-        <BlogParticle theme='light' />
-        <Box>
-          <Title>
-            <Education width={40} height={40} />
-            Teacher
-          </Title>
-          <Description>
-            Programming teacher and guide for all ages at all levels.
-          </Description>
-          <Description>
-            <strong>Learning platforms</strong>
-            <ul>
-              <li>Trainings for companies</li>
-              <li>Private lessons</li>
-              <li>In person & online meetings</li>
-            </ul>
-          </Description>
-          <Description>
-            <strong>TOOLS</strong>
-            <ul>
-              <li>Zoom, PowerPoint, exercises.</li>
-            </ul>
-          </Description>
-        </Box>
-        <Box>
-          <Title>
-            <Develope width={40} height={40} />
-            Web Developer
-          </Title>
-          <Description>
-            From the planning phase to build.
-            <br />
-            Bringing new ideas to life.
-          </Description>
-          <Description>
-            <strong>Skills</strong>
-            <p>Html, Css, Js, Ts, Node, React, Vue, MUI, Tailwind, Firebase, MongoDB, MySQL, Figma, Canva...</p>
-          </Description>
-          <Description>
-            <strong>TOOLS</strong>
-            <p>VScode, Github, WordPress etc.</p>
-          </Description>
-        </Box>
-        <BigTitle text="SKILLS" top="80%" right="20%" />
+        <Main>
+          <Logo theme='light' />
+          <SocialIcons theme='light' />
+          <PowerButton />
+          <BlogParticle theme='light' />
+          <Box>
+            <Title>
+              <Education width={40} height={40} />
+              Teacher
+            </Title>
+            <Description>
+              Programming teacher and guide for all ages at all levels.
+            </Description>
+            <Description>
+              <strong>Learning platforms</strong>
+              <ul>
+                <li>Trainings for companies</li>
+                <li>Private lessons</li>
+                <li>In person & online meetings</li>
+              </ul>
+            </Description>
+            <Description>
+              <strong>TOOLS</strong>
+              <ul>
+                <li>Zoom, PowerPoint, exercises.</li>
+              </ul>
+            </Description>
+          </Box>
+          <Box>
+            <Title>
+              <Develope width={40} height={40} />
+              Web Developer
+            </Title>
+            <Description>
+              From the planning phase to build.
+              <br />
+              Bringing new ideas to life.
+            </Description>
+            <Description>
+              <strong>Skills</strong>
+              <p>Html, Css, Js, Ts, Node, React, Vue, MUI, Tailwind, Firebase, MongoDB, MySQL, Figma, Canva...</p>
+            </Description>
+            <Description>
+              <strong>TOOLS</strong>
+              <p>VScode, Github, WordPress etc.</p>
+            </Description>
+          </Box>
+          <BigTitle text="SKILLS" top="80%" right="20%" />
         </Main>
-        </Suspense>
+      </Suspense>
     </ThemeProvider>
   )
 }

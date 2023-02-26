@@ -2,9 +2,14 @@ import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 import { Link, Pen } from './AllSvg';
+import { mediaQueries } from '../style/Themes';
 
 const Container = styled.div`
     position: relative;
+/*     
+    ${mediaQueries(40)`
+      display:none
+    `}; */
 `;
 
 const Slider = styled.div`
@@ -21,6 +26,7 @@ const Slider = styled.div`
     right:0;
     transform: rotate(135deg);
   }
+
 `;
 
 

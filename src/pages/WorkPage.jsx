@@ -2,16 +2,16 @@ import React, { lazy, Suspense, useEffect, useRef } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { motion } from 'framer-motion';
 
+import Loader from '../components/Loader';
 import WorkCard from '../components/WorkCard';
 import { Work } from '../data/WorkData';
 import { ReactSvg } from '../components/AllSvg';
 import { darkTheme, mediaQueries } from '../style/Themes';
-import Loader from '../components/Loader';
 
-const SocialIcons = lazy(() => import('../components/SocialIcons'));
-const PowerButton = lazy(() => import('../components/PowerButton'));
 const Logo = lazy(() => import('../components/Logo'));
 const BigTitle = lazy(() => import('../components/BigTitle'));
+const SocialIcons = lazy(() => import('../components/SocialIcons'));
+const PowerButton = lazy(() => import('../components/PowerButton'));
 
 const Main = styled(motion.div)`
   background-color:${props => props.theme.body};
@@ -55,7 +55,6 @@ const Rotate = styled.span`
   height: 80px;
   display: block;
   z-index:1;
-
 `;
 
 const container = {
@@ -89,8 +88,7 @@ const WorkPage = () => {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <Main key="work"
-        initial={{ opacity: 0 }}
+      <Main key="work" initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { duration: 1 } }}
         exit={{ opacity: 0, transition: { duration: 0.5 } }}
       >
@@ -110,7 +108,7 @@ const WorkPage = () => {
         <Rotate ref={react}>
           <ReactSvg width={80} height={80} />
         </Rotate>
-        <BigTitle text="Showcase" top="10%" left={mq ? "-7%" : '10%'} />
+        <BigTitle text="SHOWCASE" top="10%" left={mq ? "-7%" : '10%'} />
       </Main>
     </ThemeProvider>
   )

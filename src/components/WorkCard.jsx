@@ -93,7 +93,7 @@ const WorkCard = ({ work }) => {
     const { id, name, description, tags, demo, github } = work;
 
     return (
-        <Box key={id} variants={ item}>
+        <Box key={id} variants={item}>
             <Title>{name}</Title>
             <Desc>{description}</Desc>
             <Tags>
@@ -104,11 +104,11 @@ const WorkCard = ({ work }) => {
                 }
             </Tags>
             <Footer>
-                <a className="visit" href={ demo } target="_blank" rel="noreferrer">
+                <a className="visit" href={demo} target="_blank" rel="noreferrer">
                     Visit
                 </a>
-                <a className="github" href={github } target="_blank" rel="noreferrer">
-                    <Github width={ 30}  height={ 30 }/>
+                <a className="github" href={github} target="_blank" rel="noreferrer">
+                    <Github width={30} height={30} />
                 </a>
             </Footer>
         </Box>

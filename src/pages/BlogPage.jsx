@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import styled from 'styled-components';
-
-import Logo from '../components/Logo';
-import BlogPen from '../components/BlogPen';
-import BigTitle from '../components/BigTitle';
-import BlogCenter from '../components/BlogCenter';
-import PowerButton from '../components/PowerButton';
-import SocialIcons from '../components/SocialIcons';
 import { motion } from 'framer-motion';
+
+import Loader from '../components/Loader';
+
+const Logo = lazy(() => import('../components/Logo'));
+const BlogPen = lazy(() => import('../components/BlogPen'));
+const BigTitle = lazy(() => import('../components/BigTitle'));
+const BlogCenter = lazy(() => import('../components/BlogCenter'));
+const PowerButton = lazy(() => import('../components/PowerButton'));
+const SocialIcons = lazy(() => import('../components/SocialIcons'));
 
 const BlogPageStyled = styled(motion.div)`
   background-image: url('https://res.cloudinary.com/arikxl/image/upload/v1675717875/Ella2023/oo4fip5929ukgxq8feoz.jpg');
@@ -46,6 +48,7 @@ const BlogPage = () => {
   }, [])
 
   return (
+    <Suspense fallback={<Loader />}>
     <BlogPageStyled initial='hidden' variants={container}
       animate='show' exit={{ opacity: 0, transition: { duration: 0.5 } }}>
       <Container>
@@ -56,7 +59,8 @@ const BlogPage = () => {
         <BlogCenter />
         <BigTitle text="BLOG" top="5rem" left="5rem" />
       </Container>
-    </BlogPageStyled>
+      </BlogPageStyled>
+      </Suspense>
   )
 }
 
