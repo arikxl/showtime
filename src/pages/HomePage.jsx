@@ -15,7 +15,7 @@ const PowerButton = lazy(() => import('../components/PowerButton'));
 const SocialIcons = lazy(() => import('../components/SocialIcons'));
 const ShowCaseLinkFromHome = lazy(() => import('../components/ShowCaseLinkFromHome'));
 
-const MainContainer = styled.main`
+const MainContainer = styled(motion.div)`
   background: ${props => props.theme.body};
   color: ${props => props.theme.text};
   width: 100vw;

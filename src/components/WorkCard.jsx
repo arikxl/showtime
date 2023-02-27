@@ -60,14 +60,28 @@ const Footer = styled.footer`
         padding: 0.5rem calc(2rem + 2vw);
         border-radius: 0 0 0 50px;
         font-size: calc(1em + 0.5vw);
+        display:flex;
+        justify-content: space-around;
+        align-items: center;
 
         ${Box}:hover &{
             color:  ${props => props.theme.body};
             background-color: #61dafb;
         }
+          .card-image{
+        background-color:red;
+         height: 90%;
+        width:30px;
+         margin-left:10px;
+         display: flex;
+         border-radius: 8px;
+        }   
     }
 
+  
+
     .github{
+
         fill:${props => props.theme.body};
         ${Box}:hover &{
             fill: #61dafb;
@@ -106,9 +120,10 @@ const WorkCard = ({ work }) => {
             <Footer>
                 <a className="visit" href={demo} target="_blank" rel="noreferrer">
                     Visit
+                    <img src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2017/04/attachment_82290822-e1492536097660.png?auto=format&q=60&fit=max&w=930" alt="" className='card-image'/>
                 </a>
                 <a className="github" href={github} target="_blank" rel="noreferrer">
-                    <Github width={30} height={30} />
+                    <Github width={40} height={40} />
                 </a>
             </Footer>
         </Box>
