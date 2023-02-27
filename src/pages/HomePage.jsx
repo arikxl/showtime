@@ -8,6 +8,7 @@ import Loader from '../components/Loader';
 import DarkDiv from '../components/DarkDiv';
 import { ReactSvg } from '../components/AllSvg';
 import { mediaQueries } from '../style/Themes';
+import CvBtn from '../components/CvBtn';
 
 const Logo = lazy(() => import('../components/Logo'));
 const Contact = lazy(() => import('../components/Contact'));
@@ -148,7 +149,6 @@ const HomePage = () => {
         <Container>
           <PowerButton />
           <Logo theme={isclick ? 'dark' : 'light'} />
-
           {mq ? (
             <SocialIcons theme='light' />
           ) : (
@@ -202,6 +202,8 @@ const HomePage = () => {
                 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
               >About.</motion.h2>
             </About>
+            <CvBtn />
+
             <Skills to='/skills' >
               <motion.h2 onClick={() => setPath("skills")}
                 initial={{
