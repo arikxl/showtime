@@ -1,7 +1,8 @@
-import { click } from '@testing-library/user-event/dist/click';
-import React, { useEffect, useState } from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components'
+import FileSaver from 'file-saver';
 
+import CV from '../assets/pdf/Arik.pdf';
 
 const BtnStyled = styled.button`
     position: fixed;
@@ -93,30 +94,29 @@ const BtnStyled = styled.button`
     .chk:checked + .slider:after {
       transform: rotateZ(90deg) rotateY(180deg) translateY(0.45em) translateX(-1.4em);
     }
-`; 
+`;
 
 const CvBtn = () => {
 
-    // const [clickCV, setClickCV] = useState(false);
+  const ref = useRef(null)
 
-    const handleClick = (e) => {
-        console.log('e):', e)
-        // setClickCV(!e);
-
-        if (e===true) {
-            console.log('V')
-        } 
+  const handleClick = (e) => {
+    if (e === true) {
+      FileSaver.saveAs(CV, "Arik.pdf");
+      setTimeout(() => {
+        ref.current.checked = false;        
+      }, 1500);
     }
-
-
+  }
 
   return (
-      <BtnStyled onChange={(e) => handleClick(e.target.checked)} >
-          <label class="switch">
-              <input type="checkbox" class="chk" />
-                  <span class="slider"></span>
-          </label>
-      </BtnStyled>
+    <BtnStyled onChange={(e) => handleClick(e.target.checked)} >
+      <label class="switch" >
+        <input type="checkbox" class="chk" ref={ref} />
+          <span class="slider">
+          </span>
+        </label>
+    </BtnStyled>
   )
 }
 
