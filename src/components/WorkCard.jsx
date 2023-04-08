@@ -3,10 +3,11 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { Github } from './AllSvg';
+import { mediaQueries } from '../style/Themes';
 
 const Box = styled(motion.li)`
     width: 16rem;
-    height:40vh;
+    height:45vh;
     background-color:${props => props.theme.text};
     color:${props => props.theme.body};
     padding: 1.5rem 2rem;
@@ -18,7 +19,6 @@ const Box = styled(motion.li)`
     justify-content: space-between;
     border: 1px solid ${props => props.theme.body};
     transition: all 0.2s ease;
-
 
     &:hover{
         border: 1px solid #61dafb;
@@ -38,12 +38,13 @@ const Desc = styled.h2`
 `;
 const Tags = styled.div`
     border-top: 2px solid ${props => props.theme.body};
-    padding-top: 0.5rem;
+    padding: 0.5rem 0;
     display: flex;
     flex-wrap: wrap;
     ${Box}:hover &{
         border-top: 2px solid #61dafb;
     }
+
 `;
 const Tag = styled.span`
     margin-right: 1rem;
@@ -102,14 +103,36 @@ const item = {
     }
 }
 
+const Image  = styled.div`
+    background-image: ${props => `url(${props.img})`};
+    width: 100%;
+    height: 60%;
+    background-size: cover;
+    border: 1px solid ${props => props.theme.body};
+    background-position: top ;
+    margin-bottom: 5px;
+    border-radius: 0 10px 0 10px;
+    
+
+    ${Box}:hover &{
+        border: 1px solid #61dafb;
+    }
+    ${mediaQueries(25)`
+        height:70%;
+    `};
+`;
+
+
 const WorkCard = ({ work }) => {
 
-    const { id, name, description, tags, demo, github } = work;
+    const { id, name, description, tags, demo, github, imgSrc } = work;
 
     return (
         <Box key={id} variants={item}>
             <Title>{name}</Title>
-            <Desc>{description}</Desc>
+            <Desc>{description.slice(0,80)}</Desc>
+            <Image img={imgSrc} />
+
             <Tags>
                 {
                     tags.map((t, id) => {
@@ -120,7 +143,7 @@ const WorkCard = ({ work }) => {
             <Footer>
                 <a className="visit" href={demo} target="_blank" rel="noreferrer">
                     Visit
-                    <img src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2017/04/attachment_82290822-e1492536097660.png?auto=format&q=60&fit=max&w=930" alt="" className='card-image'/>
+                    {/* <img src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2017/04/attachment_82290822-e1492536097660.png?auto=format&q=60&fit=max&w=930" alt="" className='card-image'/> */}
                 </a>
                 <a className="github" href={github} target="_blank" rel="noreferrer">
                     <Github width={40} height={40} />

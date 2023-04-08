@@ -102,7 +102,7 @@ const CvBtn = () => {
 
   const handleClick = (e) => {
     if (e === true) {
-      FileSaver.saveAs(CV, "Arik.pdf");
+      FileSaver.saveAs(CV, "Arik Alexandrov.pdf");
       setTimeout(() => {
         ref.current.checked = false;        
       }, 1500);
