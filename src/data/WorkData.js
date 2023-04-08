@@ -12,7 +12,7 @@ export const Work = [
     {
         id:2,
         name:"Job listing website",
-        description:"A Job listing website build in ReactJS. With searching and filtering functionalities.",
+        description:"a Job listing website build in ReactJS. With searching and filtering functionalities.",
         tags:["react","sass"],
                 imgSrc:"https://res.cloudinary.com/practicaldev/image/fetch/s--sBeV06Xc--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/2yrzy75q4dzibqz6rf82.png",
 
@@ -32,32 +32,30 @@ export const Work = [
     {
         id:4,
         name:"XLblog",
-        description:"A cool looking sidebar menu build using ReactJS and styledComponents.It has really smooth animations.",
-        tags:["next","tailwind","blog"],
+        description:"A blog platform to read posts and comment. authentication with Google or GitHub.",
+        tags:["next","tailwind","firebase",],
         imgSrc:"https://user-images.githubusercontent.com/75775989/226761743-b2d78ce9-3bf9-4568-904a-f305f0f2e79a.png",
         demo:"https://xlblog.vercel.app/",
         github:"https://github.com/arikxl/xlblog"
        
     },{
         id:5,
-        name:"Todo App(React + Redux)",
-        description:"A todo app build using Redux-toolkit and framer-motion for smooth animations.",
-        tags:["react","redux","framer-motion"],
-                imgSrc:"https://res.cloudinary.com/practicaldev/image/fetch/s--sBeV06Xc--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/2yrzy75q4dzibqz6rf82.png",
-
-        demo:"http://react-redux-todo-app-git-main-codebucks27.vercel.app/",
-        github:"https://github.com/codebucks27/React-Redux-Todo-App"
+        name:"my-pix",
+        description:"a MERN-stack web app that allows you to generate images using DALL-E AI model.",
+        tags:["mern","cloudinary","dall-e"],
+        imgSrc:"https://res.cloudinary.com/arikxl/image/upload/v1680987965/Ella2023/myutpzvpjwsgg05o4cli.png",
+        demo:"https://my-pix.netlify.app/",
+        github:"https://github.com/arikxl/myPixAI"
         
     },
     {
         id:6,
-        name:"Responsive Navigation Menu",
-        description:"A reponsive navbar menu component in ReactJS with react-router functionalities. Built from scratch.",
-        tags:["react","react-router","css"],
-                imgSrc:"https://res.cloudinary.com/practicaldev/image/fetch/s--sBeV06Xc--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/2yrzy75q4dzibqz6rf82.png",
-
-        demo:"http://react-responsive-navbar-codebucks27.vercel.app/",
-        github:"https://github.com/codebucks27/React-responsive-navbar"
+        name:"Firechat",
+        description:"a real-time chat app. create or join chat rooms and send/receive messages.",
+        tags:["firebase","styled-components"],
+        imgSrc:"https://res.cloudinary.com/arikxl/image/upload/v1680988733/Ella2023/pvjithrbeluiq4v2balj.png",
+        demo:"https://arikxl.github.io/firechat/",
+        github:"https://github.com/arikxl/firechat"
         
     },
     

@@ -1,14 +1,24 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components'
 import FileSaver from 'file-saver';
+import { motion } from 'framer-motion';
+
 
 import CV from '../assets/pdf/Arik.pdf';
 
+const CVdiv = styled.div`
+  position: fixed;
+  transform: translate(-50%,0);
+  bottom: 1rem;
+  left: 50%;
+
+  .blank{
+    background-color: none;
+    border: none;
+  }
+`;
+
 const BtnStyled = styled.button`
-    position: fixed;
-    bottom: 1rem;
-    left: 50%;
-    transform: translate(-50%,0);
     z-index:10 ;
     border: none;
     border-radius: 5px;
@@ -104,19 +114,33 @@ const CvBtn = () => {
     if (e === true) {
       FileSaver.saveAs(CV, "Arik Alexandrov.pdf");
       setTimeout(() => {
-        ref.current.checked = false;        
+        ref.current.checked = false;
       }, 1500);
     }
   }
 
   return (
-    <BtnStyled onChange={(e) => handleClick(e.target.checked)} >
-      <label class="switch" >
-        <input type="checkbox" class="chk" ref={ref} />
-          <span class="slider">
-          </span>
-        </label>
-    </BtnStyled>
+    <CVdiv>
+      <motion.button className='blank'
+        initial={{
+          y: 200,
+          transition: { type: 'spring', duration: 1.5, delay: 1 }
+        }}
+        animate={{
+          y: 0,
+          transition: { type: 'spring', duration: 1.5, delay: 1 }
+        }}
+        whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
+      >
+        <BtnStyled onChange={(e) => handleClick(e.target.checked)} >
+          <label className="switch" >
+            <input type="checkbox" className="chk" ref={ref} />
+            <span className="slider">
+            </span>
+          </label>
+        </BtnStyled>
+      </motion.button>
+    </CVdiv>
   )
 }
 

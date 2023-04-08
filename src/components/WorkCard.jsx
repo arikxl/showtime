@@ -108,7 +108,7 @@ const Image  = styled.div`
     width: 100%;
     height: 60%;
     background-size: cover;
-    border: 1px solid ${props => props.theme.body};
+    /* border: 1px solid ${props => props.theme.body}; */
     background-position: top ;
     margin-bottom: 5px;
     border-radius: 0 10px 0 10px;

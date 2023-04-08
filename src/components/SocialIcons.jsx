@@ -3,7 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { darkTheme } from '../style/Themes';
 
-import { Facebook, Github, Telegram, YouTube } from './AllSvg'
+import { Facebook, Github, Link, Linkedin, Telegram, YouTube } from './AllSvg'
 
 const Icons = styled.section`
     display:flex;
@@ -51,6 +51,17 @@ const SocialIcons = (props) => {
                         fill={props.theme === 'dark' ? darkTheme.text : darkTheme.body} />
                 </a>
             </motion.div>
+       
+            <motion.div
+                initial={{ transform: 0 }}
+                animate={{ scale: [0, 1, 1.5, 1] }}
+                transition={{ type: 'spring', duration: 1, delay: 1.4 }}
+            >
+                <a href='https://www.linkedin.com/in/arik-alexandrov/' target="_blank" rel="noreferrer">
+                    <Linkedin width={28} height={28}
+                        fill={props.theme === 'dark' ? darkTheme.text : darkTheme.body} />
+                </a>
+            </motion.div>
             <motion.div
                 initial={{ transform: 0 }}
                 animate={{ scale: [0, 1, 1.5, 1] }}
@@ -58,16 +69,6 @@ const SocialIcons = (props) => {
             >
                 <a href="https://www.facebook.com/arik.alexandrov/" target="_blank" rel="noreferrer">
                     <Facebook width={25} height={25}
-                        fill={props.theme === 'dark' ? darkTheme.text : darkTheme.body} />
-                </a>
-            </motion.div>
-            <motion.div
-                initial={{ transform: 0 }}
-                animate={{ scale: [0, 1, 1.5, 1] }}
-                transition={{ type: 'spring', duration: 1, delay: 1.4 }}
-            >
-                <a href='https://www.youtube.com/channel/UCK_Vs-k83r_IzFh9s1pGixA' target="_blank" rel="noreferrer">
-                    <YouTube width={25} height={25}
                         fill={props.theme === 'dark' ? darkTheme.text : darkTheme.body} />
                 </a>
             </motion.div>
